@@ -1,6 +1,7 @@
 - name: Shared storage — LIO iSCSI block target on the additional disk
   hosts: debian-desktop
   become: true
+  gather_facts: true
   vars:
     iscsi_target_iqn: iqn.2026-04.local.globalfinancial:lun0
     iscsi_block_name: lun0
