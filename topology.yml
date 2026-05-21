@@ -1,0 +1,36 @@
+name: debian-testing
+
+hosts:
+  - name: debian-desktop
+    base_box: 
+      image: debian-12-x86_64
+      mgmt_user: debian
+    flavor: c2_r4_d40
+
+routers:
+  - name: router
+    base_box:
+      image: debian-12-x86_64
+      mgmt_user: debian
+    flavor: standard.small
+
+networks:
+  - name: network
+    cidr: 10.0.0.0/24
+
+wan:
+  name: internet-connection
+  cidr: 100.100.100.0/24
+
+net_mappings:
+    - host: debian-testing
+      network: network
+      ip: 10.0.0.10
+
+router_mappings:
+    - router: router
+      network: network
+      ip: 10.0.0.1
+
+groups: []
+
