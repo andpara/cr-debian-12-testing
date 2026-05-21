@@ -6,6 +6,9 @@ hosts:
       image: debian-12-x86_64
       mgmt_user: debian
     flavor: c2_r4_d40
+    volumes:
+    - size: 40
+    - size: 5    
 
 routers:
   - name: router
